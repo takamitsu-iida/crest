@@ -8,7 +8,7 @@
 #
 hostname = "devnetapi.cisco.com/sandbox/apic_em"
 username = "devnetuser"
-password = "________"
+password = "__________"
 version = "v1"
 
 #

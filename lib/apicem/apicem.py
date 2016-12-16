@@ -51,7 +51,8 @@ class RestClient(object):
     self._port = 443
     self._timeout = 10
     try:
-      from . import config
+      # from . import _config as config  # _config is not tracked by git due to include password info
+      from . import config  # need password info to config.py
       self._hostname = config.hostname
       self._username = config.username
       self._password = config.password

@@ -4,11 +4,16 @@
 """設定情報"""
 
 #
-# APIC-EM
+# IOS-XEデバイス情報
 #
-hostname = "10.35.185.11"
-username = "cisco"
-password = "cisco"
+xe_devices = {
+  '10.35.185.11' : {
+    'protocol': "https",
+    'port': 55443,  # IOS-XEのデフォルトのポート番号は55443
+    'username': "cisco",
+    'password': "cisco"
+  }
+}
 
 #
 # プロキシ設定

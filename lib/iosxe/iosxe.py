@@ -65,24 +65,33 @@ class RestClient(object):
   """IOS-XEのREST APIに接続するための情報を格納します."""
   # pylint: disable=too-many-instance-attributes
 
-  def __init__(self):
-    self._protocol = "https"
-    self._port = 55443  # デフォルトのポート番号は55443
-    self._timeout = 10
+  _xe_devices = {}
+  _protocol = "https"
+  _port = 55443  # デフォルトのポート番号は55443
+  _hostname = ""
+  _username = ""
+  _password = ""
+  _prefix = ""
+  _timeout = 10
+  _proxies = None
+
+
+  def __init__(self, hostname=""):
+    self._hostname = hostname
     try:
-      from . import config
-      self._hostname = config.hostname
-      self._username = config.username  # privilege 15を持ったユーザ
-      self._password = config.password  # パスワード
+      from . import config  # need password info to config.py
+      self._xe_devices = config.xe_devices
       self._proxies = config.proxies
     except ImportError:
       logging.info("configモジュールの読み込みに失敗しました。")
-      self._hostname = ""
-      self._username = ""
-      self._password = ""
-      self._proxies = None
-    self._prefix = ""
+    #
+    device_info = self._xe_devices.get(hostname, {})
+    self._protocol = device_info.get('protocol', '')
+    self._port = device_info.get('port', 55443)
     self.setPrefix()
+    self._username = device_info.get('username', '')
+    self._password = device_info.get('password', '')
+
 
   def setPrefix(self):
     """プレフィクスを作り直します"""

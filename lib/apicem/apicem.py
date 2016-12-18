@@ -52,7 +52,7 @@ class RestClient(object):
     self._timeout = 10
     try:
       # from . import _config as config  # _config is not tracked by git due to include password info
-      from . import config  # need password info to config.py
+      from . import config  # need apic-em info in config.py
       self._hostname = config.hostname
       self._username = config.username
       self._password = config.password
@@ -62,7 +62,7 @@ class RestClient(object):
       logging.info("configモジュールの読み込みに失敗しました。デフォルト設定を適用します。")
       self._hostname = "devnetapi.cisco.com/sandbox/apic_em"
       self._username = "devnetuser"
-      self._password = "Cisco123!"
+      self._password = "__________"
       self._version = "v1"
       self._proxies = None
     self._prefix = ""

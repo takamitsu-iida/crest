@@ -32,7 +32,7 @@ except ImportError as e:
 if __name__ == '__main__':
 
   # RestClientクラスをインスタンス化
-  xe = iosxe.RestClient()
+  xe = iosxe.RestClient(hostname="10.35.185.11")
 
   def show_running_config():
     """running configを表示"""

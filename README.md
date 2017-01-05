@@ -5,18 +5,66 @@ Cisco APIC-EMのREST APIを利用するPythonスクリプトの例です。
 Pythonは3を想定しています。
 
 
-## 設定変更
+## 使い方
 
-APIC-EMのアドレス、ユーザ名、パスワードが必要です。
-
+APIC-EMのアドレス、ユーザ名、パスワード、（場合によってはプロキシサーバ）が必要です。
 crest/lib/apicem/config.pyを書き換えてください。
 
-
-## 使い方
+## スクリプトの実行
 
 crest/scriptにサンプルスクリプトを置いています。
 
+### aem-get.py
+
+aem-get.pyの引数にAPIのURIを与えると、レスポンスをダンプします。
+
+```
+C:\HOME\iida\git\crest\scripts>aem-get.py /host
+{
+  "data": {
+    "response": [
+      {
+        "connectedAPName": "AP7081.059f.19ca",
+        "pointOfAttachment": "ae19cd21-1b26-4f58-8ccd-d265deabb6c3",
+        "hostType": "wireless",
+        "connectedNetworkDeviceId": "cd6d9b24-839b-4d58-adfe-3fdf781e1782",
+        "subType": "UNKNOWN",
+        "id": "48cdeb9b-b412-491e-a80c-7ec5bbe98167",
+        "source": "200",
+        "connectedNetworkDeviceIpAddress": "10.1.14.3",
+        "connectedAPMacAddress": "68:bc:0c:63:4a:b0",
+        "lastUpdated": "1479514114932",
+        "hostIp": "10.1.15.117",
+        "hostMac": "00:24:d7:43:59:d8",
+        "vlanId": "600",
+        "pointOfPresence": "ae19cd21-1b26-4f58-8ccd-d265deabb6c3"
+      },
+      {
+        "id": "f624d4f3-0ab9-4ae3-b09d-62051edbd8f3",
+        "hostType": "wired",
+        "connectedNetworkDeviceId": "26450a30-57d8-4b56-b8f1-6fc535d67645",
+        "connectedInterfaceId": "7075521d-4d7b-4218-92f9-79b60e054635",
+        "connectedNetworkDeviceIpAddress": "10.2.1.17",
+        "source": "200",
+        "lastUpdated": "1479514299803",
+        "connectedInterfaceName": "GigabitEthernet1/0/47",
+        "hostIp": "10.2.1.22",
+        "hostMac": "5c:f9:dd:52:07:78",
+        "vlanId": "200",
+        "subType": "UNKNOWN"
+      }
+    ],
+    "version": "1.0"
+  },
+  "status_code": 200,
+  "Content-Type": "application/json;charset=UTF-8"
+}
+```
+
+
 ### aem-get-host.py
+
+/hostにGETした結果を整形して表示します。
 
 ```
 C:\HOME\iida\git\crest\scripts>aem-get-host.py
@@ -30,6 +78,8 @@ host IP      type      connected to network device
 ```
 
 ### aem-get-network-device.py
+
+/network-deviceにGETした結果を整形して表示します。
 
 ```
 C:\HOME\iida\git\crest\scripts>aem-get-network-device.py
@@ -54,6 +104,8 @@ Campus-WLC-5508                10.1.14.2      Cisco 5508 Wireless LAN Controller
 ```
 
 ### aem-get-network-device-iplist.py
+
+/network-device-iplistにGETした結果を整形して表示します。
 
 ```
 C:\HOME\iida\git\crest\scripts>aem-get-network-device-iplist.py
@@ -82,5 +134,9 @@ C:\HOME\iida\git\crest\scripts>aem-get-network-device-iplist.py
 
 ### aem-get-network-device-config.py
 
+実行してみてください。
+
 
 ### aem-get-interface.py
+
+実行してみてください。

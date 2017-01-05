@@ -12,11 +12,11 @@ crest/lib/apicem/config.pyを書き換えてください。
 
 ## スクリプトの実行
 
-crest/scriptにサンプルスクリプトを置いています。
+crest/scriptsにサンプルスクリプトを置いています。
 
 ### aem-get.py
 
-aem-get.pyの引数にAPIのURIを与えると、レスポンスをダンプします。
+aem-get.pyの引数にAPIのURLを与えると、レスポンスをダンプします。
 
 ```
 C:\HOME\iida\git\crest\scripts>aem-get.py /host

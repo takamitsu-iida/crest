@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 """設定情報"""
@@ -8,7 +7,7 @@
 #
 hostname = "devnetapi.cisco.com/sandbox/apic_em"
 username = "devnetuser"
-password = "__________"
+password = "Cisco123!"
 version = "v1"
 
 #

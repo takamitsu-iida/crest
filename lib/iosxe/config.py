@@ -1,13 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 """設定情報"""
 
 #
 # IOS-XEデバイス情報
 #
 xe_devices = {
-  '10.35.185.11' : {
+  '10.35.185.11': {
     'protocol': "https",
     'port': 55443,  # IOS-XEのデフォルトのポート番号は55443
     'username': "cisco",
